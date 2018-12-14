@@ -1,0 +1,20 @@
+---
+title: ""
+output:
+  html_document:
+    includes:
+      in_header: "favicon.html"
+---
+<div>&nbsp;</div>
+<center><p>![Figure 1](MBDSlogo.png){width=400px}</p></center>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<center><font size = 6><p style = "padding-left: 100px; padding-right: 100px"; align = center>**The Effects of Self-Control Depletion on Dishonesty Under Loss and Gain Framing**</p></font></center>
+<center><font size =6><p>Trent L. Thompson</p></font></center>
+<center><font size = 4><p>December 2018</p></font></center>
+<p style = "padding-left: 150px; padding-right: 150px"; align = justify><font size = 3>
+Through a novel randomized controlled “lab-in-the-field” experiment at a midsized, private northeastern university, we test the isolated and joint effects of self-control depletion and loss/gain framing on cheating behavior. In contradiction to the existing body of literature, we ultimately find that self-control depletion, loss/gain framing, and the interaction between the two factors—at least in the context of our and similar experiments—play little to no role in both: (a) an individual’s decision to cheat (i.e. to be dishonest), and (b) an individual’s decision of how much to cheat (i.e. the degree to which one is dishonest), conditional upon them cheating in the first place.</p></font>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<center><font size = 3><p>*Please use the tabs in the navigation bar at the top of this page to explore!*</p></font></center>

@@ -1,0 +1,251 @@
+---
+title: "Results"
+output:
+  html_document:
+    includes:
+      in_header: "favicon.html"
+---
+#{.tabset}
+##**Hypothesis 1**
+###**Frequency of cheating:**
+<h4 align = justify>Did participants who were depleted of self-control cheat more often than participants who were not depleted of self-control?</h4>
+####**Answer: <font color="red";>NO**</font>
+<center>
+```{r echo = FALSE}
+MBDSproject <- read.csv("~/Desktop/MBDS/BDS 501 Behavioral Economics & Psychology/MBDSproject.csv")
+pDepletion <- (5+4)/(31+39)
+pNonDepletion <- (4+4)/(28+34)
+varDepletion <- (pDepletion/(1 - pDepletion))/70
+varNonDepletion <- (pNonDepletion/(1 - pNonDepletion))/62
+
+freq_depleted_cheat <- c(mean(MBDSproject$cheated[MBDSproject$depleted == "1"])*100, 
+                         mean(MBDSproject$cheated[MBDSproject$depleted == "0"])*100)
+seDepletion <- sqrt(varDepletion)
+seNonDepletion <- sqrt(varNonDepletion)
+
+se_depletion_cheat <- c(seDepletion*100, seNonDepletion*100)
+
+bp_freq_depleted_cheat <- barplot(freq_depleted_cheat, ylim = c(0, 20), las = 1, 
+                                  main = "Frequency of Cheating Across Depletion Conditions (n = 132)", 
+                                  ylab = "% of Participants Who Cheated",
+                                  names.arg = c("Depleted", "Non-depleted"), col = c("mistyrose2", "ivory"))
+arrows(x0=bp_freq_depleted_cheat, y0=freq_depleted_cheat-se_depletion_cheat, y1=freq_depleted_cheat+se_depletion_cheat, code=3, angle=90)
+text(x = bp_freq_depleted_cheat, y = freq_depleted_cheat, label = c("12.86%", "12.90%"), pos = 3, cex = 1)
+```
+</center>
+<font size = 3><p align = justify>At the 95% confidence level, we fail to reject the null hypothesis which says that there is no statistically significant difference between the frequency of cheating across the two depleted treatment conditions and that of the two non-depleted treatment conditions; W = 2169, p = 0.5047.</p></font>
+```{r echo = FALSE, error = FALSE}
+MBDSproject <- read.csv("~/Desktop/MBDS/BDS 501 Behavioral Economics & Psychology/MBDSproject.csv")
+attach(MBDSproject)
+wilcox.test(MBDSproject$cheated[MBDSproject$depleted == "1"], 
+            MBDSproject$cheated[MBDSproject$depleted == "0"], 
+            alternative = "greater", 
+            conf.int = T)
+```
+<div>&nbsp;</div>
+###**Magnitude of cheating:**
+<h4 align = justify>Was the magnitude of cheating demonstrated greater for depleted participants as opposed to non-depleted participants?</h4>
+####**Answer: <font color="red";>NO**</font>
+<center>
+```{r error = FALSE, warning=FALSE, include=FALSE}
+MBDSproject <- read.csv("~/Desktop/MBDS/BDS 501 Behavioral Economics & Psychology/MBDSproject.csv")
+mean(MBDSproject$amt_cheat[MBDSproject$depleted == "1"], na.rm = TRUE)
+mean(MBDSproject$amt_cheat[MBDSproject$depleted == "0"], na.rm = TRUE)
+mean_mags_depletion <- c(mean(MBDSproject$amt_cheat[MBDSproject$depleted == "1"], na.rm = TRUE), mean(MBDSproject$amt_cheat[MBDSproject$depleted == "0"], na.rm = TRUE))
+sd(MBDSproject$amt_cheat[MBDSproject$depleted == "1"], na.rm = TRUE)
+sd(MBDSproject$amt_cheat[MBDSproject$depleted == "0"], na.rm = TRUE)
+na.omit(MBDSproject$amt_cheat[MBDSproject$depleted == "1"])
+na.omit(MBDSproject$amt_cheat[MBDSproject$depleted == "0"])
+se_mags_depletion <- c(1.322876/sqrt(9), 3.327376/sqrt(8))
+```
+```{r echo = FALSE, warning = FALSE, error = FALSE}
+bp_mags_depletion <- barplot(mean_mags_depletion, 
+                             ylim = c(0,10), 
+                             las = 1, col = c("mistyrose2", "ivory"),
+                             main = "Magnitude of Cheating Across Depletion Conditions (n = 17)", 
+                             ylab = "Number of Matrices Over-Reported",
+                             names.arg = c("Depletion", "Non-depletion"))
+arrows(x0=bp_mags_depletion, y0=mean_mags_depletion-se_mags_depletion, y1=mean_mags_depletion+se_mags_depletion, code=3, angle=90)
+text(x = bp_mags_depletion, y = mean_mags_depletion, label = c("1.67", "4.25"), pos = 3, cex = 1)
+```
+</center>
+<font size = 3><p align = justify>At the 95% confidence level, we fail to reject the null hypothesis which says that the amount of cheating demonstrated by participants in the two depleted treatment groups is statistically significantly greater than that of participants in the two non-depleted treatment groups; W = 19.5, p = 0.9620.</p></font>
+```{r echo = FALSE, warning = FALSE}
+wilcox.test(MBDSproject$amt_cheat[MBDSproject$depleted == "1"], 
+            MBDSproject$amt_cheat[MBDSproject$depleted == "0"], 
+            alternative = "greater", 
+            conf.int = T)
+```
+<font size = 3><p align = justify>In fact, we actually find evidence in support of the opposing alternative hypothesis, which essentially says that the amount of cheating demonstrated by participants across the two *non-depleted* treatment conditions was statistically significantly greater than that of the two depleted treatment conditions; W = 19.5, p = 0.0475, thus constituting a direct contradiction of what we expected to find as well as the prior literature.</p></font>
+```{r echo = FALSE, warning = FALSE}
+wilcox.test(MBDSproject$amt_cheat[MBDSproject$depleted == "1"], 
+            MBDSproject$amt_cheat[MBDSproject$depleted == "0"], 
+            alternative = "less", 
+            conf.int = T)
+```
+##**Hypothesis 2**
+###**Frequency of cheating:**
+<h4 align = justify>Did participants faced with the prospect of losing endowed incentives cheat more often than participants faced with the prospect of gaining incentives?</h4>
+####**Answer: <font color="red";>NO**</font>
+<center>
+``` {r include = FALSE}
+MBDSproject <- read.csv("~/Desktop/MBDS/BDS 501 Behavioral Economics & Psychology/MBDSproject.csv")
+pLossFrame <- (5+4)/(31+28)
+varLossFrame <- (pLossFrame/(1 - pLossFrame))/59
+seLossFrame <- sqrt(varLossFrame)
+pGainFrame <- (4+4)/(39+34)
+varGainFrame <- (pGainFrame/(1 - pGainFrame))/73
+seGainFrame <- sqrt(varGainFrame)
+
+se_framing_cheat <- c(seLossFrame*100, seGainFrame*100)
+mean_framing_cheat <- c(mean(MBDSproject$cheated[MBDSproject$gain == "0"])*100, 
+                        mean(MBDSproject$cheated[MBDSproject$gain == "1"])*100)
+```
+``` {r echo = FALSE}
+bp_mean_framing_cheat <- barplot(mean_framing_cheat, ylim = c(0, 25), las = 1, col = c("salmon", "darkolivegreen3"), 
+                                 main = "Frequency of Cheating Across Framing Conditions (n = 132)", 
+                                 ylab = "% of Participants Who Cheated",
+                                 names.arg = c("Loss Framing", "Gain Framing"))
+arrows(x0=bp_mean_framing_cheat, y0=mean_framing_cheat-se_framing_cheat, y1=mean_framing_cheat+se_framing_cheat, code=3, angle=90)
+text(x = bp_mean_framing_cheat, y = mean_framing_cheat, label = c("15.25%", "10.96%"), pos = 3, cex = 1)
+```
+</center>
+<font size = 3><p align = justify>At the 95% confidence level, we fail to reject the null hypothesis which says that there is no statistically significant difference between the frequency of cheating demonstrated by participants across the two loss framing treatment groups and that of the two gain framing treatment groups; W = 2246, p = 0.2340.</p></font>
+```{r echo = FALSE}
+wilcox.test(MBDSproject$cheated[MBDSproject$gain == "0"], 
+            MBDSproject$cheated[MBDSproject$gain == "1"], 
+            alternative = "greater", 
+            conf.int = T)
+```
+<div>&nbsp;</div>
+###**Magnitude of cheating:**
+<h4 align = justify>Was the magnitude of cheating demonstrated greater for participants faced with the prospect of losing incentives as opposed to those faced with gaining incentives?</h4>
+####**Answer: <font color="green";>YES**</font>
+<center>
+``` {r include = FALSE}
+mean(MBDSproject$amt_cheat[MBDSproject$gain == "0"], na.rm = TRUE) # 4.0
+mean(MBDSproject$amt_cheat[MBDSproject$gain == "1"], na.rm = TRUE) # 1.625
+
+mean_mags_framing <- c(mean(MBDSproject$amt_cheat[MBDSproject$gain == "0"], na.rm = TRUE), mean(MBDSproject$amt_cheat[MBDSproject$gain == "1"], na.rm = TRUE))
+
+na.omit(MBDSproject$amt_cheat[MBDSproject$gain == "0"])
+# length(MBDSproject$amt_cheat[MBDSproject$gain == "0"]) = 9
+na.omit(MBDSproject$amt_cheat[MBDSproject$gain == "1"])
+# length(MBDSproject$amt_cheat[MBDSproject$gain == "1"]) = 8
+
+# sqrt(length(MBDSproject$amt_cheat[MBDSproject$gain == "0"])) = sqrt(9)
+# sqrt(length(MBDSproject$amt_cheat[MBDSproject$gain == "1"])) = sqrt(8)
+se_mags_framing <- c(4.0/sqrt(9), 1.625/sqrt(8))
+```
+``` {r echo = FALSE}
+bp_mags_framing <- barplot(mean_mags_framing, 
+                             ylim = c(0,8), 
+                             las = 1, col = c("salmon", "darkolivegreen3"),
+                             main = "Magnitude of Cheating Across Framing Conditions (n = 17)", 
+                             ylab = "Number of Matrices Over-Reported",
+                             names.arg = c("Loss Framing", "Gain Framing"))
+arrows(x0=bp_mags_framing, y0=mean_mags_framing-se_mags_framing, y1=mean_mags_framing+se_mags_framing, code=3, angle=90)
+text(x = bp_mags_framing, y = mean_mags_framing, label = c("4.00", "1.63"), pos = 3, cex = 1)
+```
+</center>
+<font size = 3><p align = justify>At the 95% confidence level, we do indeed reject the null hypothesis which says that there is no statistically significant difference between the amount of cheating demonstrated by participants across the two loss framing treatment conditions and that of the two gain framing treatment conditions; W = 54, p = 0.0339. With this, we find evidence in support of the alternative hypothesis, which says that the amount of cheating demonstrated by participants across the two loss framing treatment groups is statistically significantly greater than that which was demonstrated by participants across the two gain framing treatment groups.</p></font>
+```{r echo = FALSE, warning = FALSE}
+wilcox.test(MBDSproject$amt_cheat[MBDSproject$gain == "0"], 
+            MBDSproject$amt_cheat[MBDSproject$gain == "1"], 
+            alternative = "greater", 
+            conf.int = T)
+```
+<div>&nbsp;</div>
+##**Hypothesis 3**
+###**Frequency of cheating:**
+<h4 align = justify>Was the frequency of cheating demonstrated by participants in the depletion_loss treatment group greater than that of participants in all other treatment groups?</h3>
+####**Answer: <font color="red";>NO**</font>
+<center>
+```{r echo = FALSE}
+MBDSproject <- read.csv("~/Desktop/MBDS/BDS 501 Behavioral Economics & Psychology/MBDSproject.csv")
+pDL <- 5/31
+pDG <- 4/39
+pNL <- 4/28
+pNG <- 4/34
+
+varDL <- (pDL/(1 - pDL))/31
+varDG <- (pDG/(1 - pDG))/39
+varNL <- (pNL/(1 - pNL))/28
+varNG <- (pNG/(1 - pNG))/34
+
+sdDL <- sqrt(varDL)
+sdDG <- sqrt(varDG)
+sdNL <- sqrt(varNL)
+sdNG <- sqrt(varNG)
+
+means <- c(mean(MBDSproject$cheated[MBDSproject$condition == "DL"])*100,
+           mean(MBDSproject$cheated[MBDSproject$condition == "DG"])*100,
+           mean(MBDSproject$cheated[MBDSproject$condition == "NL"])*100,
+           mean(MBDSproject$cheated[MBDSproject$condition == "NG"])*100)
+
+semeans <- c(sdDL*100, sdDG*100, sdNL*100, sdNG*100)
+bp <- barplot(means, ylim = c(0,25), las = 1, 
+              main = "Frequency of Cheating Across All Treatment Groups (n = 132)", 
+              ylab = "% of Participants Who Cheated",
+              names.arg = c("DL", "DG", "NL", "NG"), 
+              col = c("royalblue4", "slategray1", "deepskyblue4", "deepskyblue"),)
+arrows(x0=bp, y0=means-semeans, y1=means+semeans, code=3, angle=90)
+text(x = bp, y = means, label = c("16%", "10%", "14%", "12%"), pos = 3, cex = 1)
+```
+</center>
+<font size = 3><p align = justify>At the 95% confidence level, we fail to reject the null hypothesis which says that there is no statistically significant difference between the frequency of cheating across each of the four treatment groups; H(3) = 0.6132, p = 0.8934.</p></font>
+```{r echo = FALSE}
+kruskal.test(cheated ~ condition)
+```
+<div>&nbsp;</div>
+###**Magnitude of cheating:**
+<h4 align = justify>Was the magnitude of cheating demonstrated by participants in the depletion_loss treatment group greater than that of participants in all other treatment groups?</h4>
+####**Answer: <font color="red";>NO**</font>
+<center>
+```{r include=FALSE}
+mean(MBDSproject$amt_cheat[MBDSproject$condition == "DL"], na.rm = TRUE)
+mean(MBDSproject$amt_cheat[MBDSproject$condition == "DG"], na.rm = TRUE)
+mean(MBDSproject$amt_cheat[MBDSproject$condition == "NL"], na.rm = TRUE)
+mean(MBDSproject$amt_cheat[MBDSproject$condition == "NG"], na.rm = TRUE)
+
+meanmags <- c(2, 1.25, 6.5, 2)
+
+sd(MBDSproject$amt_cheat[MBDSproject$condition == "DL"], na.rm = TRUE) # 1.732051
+sd(MBDSproject$amt_cheat[MBDSproject$condition == "DG"], na.rm = TRUE) # 0.50
+sd(MBDSproject$amt_cheat[MBDSproject$condition == "NL"], na.rm = TRUE) # 2.886751
+sd(MBDSproject$amt_cheat[MBDSproject$condition == "NG"], na.rm = TRUE) # 2.0
+
+sqrt(length(MBDSproject$amt_cheat[MBDSproject$condition == "DL"])) # = sqrt(5)
+sqrt(length(MBDSproject$amt_cheat[MBDSproject$condition == "DG"])) # = sqrt(4)
+sqrt(length(MBDSproject$amt_cheat[MBDSproject$condition == "NL"])) # = sqrt(4)
+sqrt(length(MBDSproject$amt_cheat[MBDSproject$condition == "NG"])) # = sqrt(4)
+
+semags <- c(1.732051/sqrt(5), 0.5/sqrt(4), 2.886751/sqrt(4), 2/sqrt(4))
+```
+``` {r echo = FALSE}
+bpmags <- barplot(meanmags, ylim = c(0,10), las = 1, 
+                  main = "Magnitude of Cheating Across All Treatment Groups (n = 17)", 
+                  ylab = "Number of Matrices Over-Reported",
+                  names.arg = c("DL", "DG", "NL", "NG"),
+                  col = c("royalblue4", "slategray1", "deepskyblue4", "deepskyblue"))
+arrows(x0=bpmags, y0=meanmags-semags, y1=meanmags+semags, code=3, angle=90)
+text(x = bp, y = meanmags, label = c("2.00", "1.25", "6.50", "2.00"), pos = 3, cex = 1)
+```
+</center>
+<font size = 3><p align = justify>At the 95% confidence level, we do indeed reject the null hypothesis which says that there is no statistically significant difference between the amount (i.e. magnitude) of cheating across all the treatment groups H(3) = 8.8911, p = 0.0308. With this, we find evidence in support of the alternative hypothesis, which says that the amount of cheating demonstrated by participants differs across the four treatment conditions. However, through post hoc pairwise analysis ultimately it is determined that our study is too underpowered to glean any meaningful differences.</p></font>
+```{r echo = FALSE}
+kruskal.test(amt_cheat ~ condition)
+library(pgirmess)
+kruskalmc(amt_cheat ~ condition)
+```
+
+
+
+
+
+
+
+
+
+
+

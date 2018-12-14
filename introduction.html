@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Introduction</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<head>
+<link rel="shortcut icon" href="shield.png">
+</head>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="introduction.html">Introduction</a>
+</li>
+<li>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="results.html">Results</a>
+</li>
+<li>
+  <a href="conclusion.html">Conclusion</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Introduction</h1>
+
+</div>
+
+
+<div id="section" class="section level1 tabset">
+<h1></h1>
+<div id="literature-review-research-opportunity" class="section level2">
+<h2><strong>Literature Review &amp; Research Opportunity</strong></h2>
+<div id="notes-from-the-literature" class="section level3">
+<h3><strong>Notes From the Literature</strong></h3>
+<font size = 3>
+<p align="justify">
+<strong>1. <a href="http://science.sciencemag.org/content/211/4481/453">Framing effects</a></strong>: Alternate descriptions of the same choices—or potential future outcomes tied to such choices—either as a gain or loss often leads people to make different decisions.
+</p>
+<p align="justify">
+<strong>2. <a href="https://academic.oup.com/qje/article-abstract/106/4/1039/1873382">Loss aversion</a></strong>: People tend to do more to avoid a loss than to acquire an equivalent gain; psychologically, losses hurt more than gains feel good.
+</p>
+<p align="justify">
+<strong>3. <a href="https://journals.sagepub.com/doi/abs/10.1111/j.1467-8721.2007.00534.x">Strength model of self-control</a></strong>: Self-control is a limited resource that can become depleted with extensive use, much like an overused muscle.
+</p>
+<p></font></p>
+</div>
+<div id="motivating-literature" class="section level3">
+<h3><strong>Motivating Literature</strong></h3>
+<font size = 3>
+<p align="justify">
+<strong>1. <a href="https://www.sciencedirect.com/science/article/pii/S0022103109000365">Mead et al., (2009)</a>:</strong>
+</p>
+<p align="justify">
+This study employed a two (i.e. self-control depletion: depleted/non-depleted) by two (i.e. cheating: opportunity/no opportunity) dimentional experimental design (i.e. four treatment blocks) in which participants completed a short essay task followed by a matrices solving task, in order to test the effects of self-control depletion on dishonesty.
+</p>
+<p align="justify">
+For the essay task, participants were instructed to write a short essay describing a recent vacation that they took. The self-control depletion/non-depletion treatment dimension was introduced such that participants in depletion treatment groups had to write the essay without using the letters “a” and “n,” which is considerably difficult to do, and those in the non-depletion treatment groups were simply not allowed to use the letters “x” and “z”.
+</p>
+<p align="justify">
+After completing their essay, participants were faced with the matrices solving task. For this task, all participants were shown the same series of 3x4 matrices similar to the example matrix below. For each of the matrices, their goal was to find the set of two numbers that added up exactly to 10. For example, in the matrix below, 3.44 and 6.56 add up exactly to 10.
+</p>
+<center>
+<p>
+<img src="matrix.png" alt="Figure 2" width="200" />
+</p>
+</center>
+<p align="justify">
+All participants were allotted the same amount of time to solve these matrices before their performance was evaluated. The opportunity to cheat (or lack thereof) was set up such that the matrices solving task was either self-reported by the participant (i.e. cheating condition) or evaluated by the experimenter (i.e. non-cheating condition).
+</p>
+<p align="justify">
+Unsurprisingly, it was found that on average, there was much more cheating in the self-graded conditions relative to the experimenter-scored conditions. More importantly though, the results showed that when participants had the opportunity to cheat <strong><em>under self-report conditions, cheating behavior was magnified by self-control depletion.</em></strong> Moreover, an important feature of this study was that participants in the self-score condition groups were given an envelope filled with the full possible payment beforehand and were asked to return the amount equivalent to that which they that did not earn. Thus, the design was set up such that all participants, regardless of treatment group, operated under a loss frame.
+</p>
+<p>
+<strong>2. <a href="https://www.sciencedirect.com/science/article/pii/S0749597811000422">Gino et al., (2011)</a>:</strong>
+</p>
+<p align="justify">
+Employed a very similar experimental design as Mead et al. (2009), but instead of loss framing, gain framing was tested. Meaning, participants in self-scoring conditions were not endowed with the full possible incentive from the beginning of the experiment, and then asked to return whatever they didn’t earn. Instead these participants were given nothing to begin with and were given (i.e. gained) compensation only after self-reporting. <strong><em>Under these purely gain framing conditions, again self-control depleted participants cheated more on average relative to participants who were not depleted.</em></strong>
+</p>
+<p>
+<strong>3. <a href="https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2015.2313">Grolleau et al., (2016)</a>:</strong>
+</p>
+<p align="justify">
+This study employed a two (i.e. framing: loss/gain ) by two (i.e. cheating: opportunity/no opportunity) dimentional experimental design (i.e. four treatment blocks) in which participants were faced with the same aforementioned matrices solving task, though under conditions only consisting of self-control non-depletion (i.e. participants were not treated with a depletion task). Ultimately, it was found that <strong><em>loss framing conditions led participants to cheat more on average relative to gain framing conditions.</em></strong>
+</p>
+<p></font></p>
+</div>
+<div id="research-opportunity" class="section level3">
+<h3><strong>Research Opportunity</strong></h3>
+<font size = 3>
+<p align="justify">
+We identify an opportunity to expand upon Mead et al. (2009) and Gino et al.(2011)—which established the effect of self-control depletion on cheating under loss and gain framing, respectively—to incorporate the findings of Grolleau et al. (2016)—which established that loss and gain frames have asymmetric effects on cheating behaviors—by <strong><em>looking at the interaction effects of self-control depletion/non-depletion and loss/gain framing.</em></strong>
+</p>
+<p></font></p>
+</div>
+</div>
+<div id="hypotheses" class="section level2">
+<h2><strong>Hypotheses</strong></h2>
+<div id="hypothesis-1" class="section level4">
+<h4><strong>Hypothesis 1:</strong></h4>
+<font size = 3>
+<p align="justify">
+Regardless of loss/gain framing, participants depleted of self-control will cheat more, on average, than non-depleted participants. As previously mentioned, several studies have found that on average, experimental participants depleted of self-control systematically cheat much more relative to non-depleted participants under otherwise similar conditions (Mead et al., 2009; Gino et al, 2011). Thus, the proposed study serves, in part, to replicate and substantiate the current body of literature on this topic. Hypothesis 1 can be formally written as: <span class="math display">\[H_0 : \mu_d = \mu_n\]</span> <span class="math display">\[H_a : \mu_d &gt; \mu_n\]</span> where <span class="math inline">\(\mu_d\)</span> is the cross-treatment meta-average rate/amount of cheating demonstrated by participants in the two depleted conditions (i.e. depleted_loss and depleted_gain) and <span class="math inline">\(\mu_n\)</span> is the cross-treatment meta-average rate/amount of cheating demonstrated by participants in the two non-depleted conditions (i.e. non-depleted_loss and non-depleted_gain). We expect to reject <span class="math inline">\(H_0\)</span>, which says that there will be no statistically significant difference between <span class="math inline">\(\mu_d\)</span> and <span class="math inline">\(\mu_n\)</span>, in favor of <span class="math inline">\(H_a\)</span>, which says that <span class="math inline">\(\mu_d\)</span> will be statistically significantly greater than <span class="math inline">\(\mu_n\)</span>.
+</p>
+</font>
+<div>
+ 
+</div>
+</div>
+<div id="hypothesis-2" class="section level4">
+<h4><strong>Hypothesis 2:</strong></h4>
+<font size = 3>
+<p align="justify">
+Loss framing will lead to more cheating relative to gain framing, regardless of self-control depletion or lack thereof. Again, we expect such an effect in view of previous work that has demonstrated that people generally cheat more in order to avoid losses than to ensure gains (Grolleau et al., 2016). Hypothesis 2 can be formally written as: <span class="math display">\[H_0 : \mu_{l} = \mu_{g}\]</span> <span class="math display">\[H_a : \mu_{l} &gt; \mu_{g}\]</span> where <span class="math inline">\(\mu_l\)</span> is the cross-treatment meta-average rate/amount of cheating demonstrated by participants in the two loss framing conditions (i.e. depleted_loss and non-depleted_loss) and <span class="math inline">\(\mu_g\)</span> is the cross-treatment meta-average rate/amount of cheating demonstrated by participants in the two gain framing conditions (i.e. depleted_gain and non-depleted_gain). We expect to reject <span class="math inline">\(H_0\)</span>, which says that there will be no statistically significant difference between <span class="math inline">\(\mu_l\)</span> and <span class="math inline">\(\mu_g\)</span>, in favor of <span class="math inline">\(H_a\)</span>, which says that <span class="math inline">\(\mu_l\)</span> will be statistically significantly greater than <span class="math inline">\(\mu_g\)</span>.
+</p>
+</font>
+<div>
+ 
+</div>
+</div>
+<div id="hypothesis-3" class="section level4">
+<h4><strong>Hypothesis 3:</strong></h4>
+<font size = 3>
+<p align="justify">
+The average rate/amount of cheating demonstrated will be greatest for participants who are depleted of self-control and operating under a loss frame. I also expect the average amount/rate of cheating demonstrated to be the second highest in the depletion_gain treatment group, followed closely by the non-depleted_loss group, and then lastly by the non-depleted_gain group. Hypothesis 3 can be formally written as: <span class="math display">\[H_0 : \mu_{dl} = \mu_{dg} = \mu_{nl} = \mu_{ng}\]</span> <span class="math display">\[H_a : \mu_{dl} &gt; \mu_{dg} &gt; \mu_{nl} &gt; \mu_{ng}\]</span> where <span class="math inline">\(\mu_{dl}\)</span> is the average rate/amount of cheating demonstrated by participants in the depleted_loss condition, <span class="math inline">\(\mu_{dg}\)</span> is that in the depleted_gain condition, <span class="math inline">\(\mu_{nl}\)</span> is that in the non-depleted_loss condition, and <span class="math inline">\(\mu_{ng}\)</span> is that in the non-depleted_gain condition. We expect to reject <span class="math inline">\(H_0\)</span>, which says that there will be no statistically significant difference between <span class="math inline">\(\mu_{dl}\)</span>, <span class="math inline">\(\mu_{dg}\)</span>, <span class="math inline">\(\mu_{nl}\)</span>, and <span class="math inline">\(\mu_{ng}\)</span>, in favor of <span class="math inline">\(H_a\)</span>, which says that <span class="math inline">\(\mu_{dl}\)</span> will be statistically significantly greater than <span class="math inline">\(\mu_{dg}\)</span>, which will be statistically significantly greater than <span class="math inline">\(\mu_{nl}\)</span>, which finally will be statistically significantly greater than <span class="math inline">\(\mu_{ng}\)</span>.
+</p>
+<p align="justify">
+No previous research that we can find directly informs this third hypothesis, though the combined findings from the aforementioned research that informs our expectation to reject the null hypothesis in both Hypotheses 1 and 2, leads us to also expect to reject the null in Hypothesis 3. We believe that the combined effect of both self-control depletion and loss framing should theoretically maximize cheating across the four treatments we intend to examine. Thus, our study also serves to expand and inform the current body of literature on the strength model of self-control, and loss/gain framing, as well as behavioral ethics.
+</p>
+<p></font></p>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+---
+title: "MBDSproject"
+author: "Trent Thompson"
+date: "November 28, 2018"
+output: html_document
+---
+###**1. Introduction**
+####**1.1 Notes from the literature**
+*Framing effects:* alternate descriptions of the same choice/outcome as either a gain or loss leads to different decisions [(Tversky & Kahneman, 1992)](http://science.sciencemag.org/content/211/4481/453)  
+
+*Loss aversion:* people tend to do more to avoid a loss than to acquire an equivalent gain; psychologically, losses hurt more than gains feel good [(Tversky & Kahneman, 1991)](https://academic.oup.com/qje/article-abstract/106/4/1039/1873382)  
+
+*Strength model of self-control:* self-control is a limited resource that can be depleted [(Baumeister et al., 2007)](https://journals.sagepub.com/doi/abs/10.1111/j.1467-8721.2007.00534.x)  
+ 
+####**1.2 Motivating literature**
+**[Grolleau et al. (2016)](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2015.2313)**: Loss framing lead participants to cheat more on a matrices solving task than gain framing.
+
+**[Mead et al. (2009)](https://www.sciencedirect.com/science/article/pii/S0022103109000365)**: Self-control depleted participants cheated more on a matrices solving task than participants who were not depleted.
+
+####**1.3 Research question**
+What impact does the interaction of self-control depletion and loss/gain framing have on cheating?
+
+####**1.4 Hypotheses**
+
+|            | Depletion           | Non-depletion          |
+| ---------- | -----------------   | ---------------------- |
+| Loss frame | (I) depleted_loss   | (II) non-depleted_loss |
+| Gain frame | (III) depleted_gain | (IV) non-depleted_gain |
+
+**Hypothesis 1:** Regardless of loss/gain framing, participants depleted of self-control will cheat more, on average, than non-depleted participants. Hypothesis 1 can be formally written as:
+$$H_0 : \mu_d = \mu_n$$
+$$H_a : \mu_d > \mu_n$$
+where $\mu_d$ is the cross-treatment meta-average rate/amount of cheating demonstrated by subjects in the two depleted conditions (i.e. depleted_loss and depleted_gain) and $\mu_n$ is the crosstreatment meta-average rate/amount of cheating demonstrated by subjects in the two nondepleted conditions (i.e. non-depleted_loss and non-depleted_gain). We expect to reject $H_0$, which says that there will be no statistically significant difference between $\mu_d$ and $\mu_n$, in favor of $H_a$, which says that $\mu_d$ will be statistically significantly greater than $\mu_n$.  
+
+**Hypothesis 2:** Loss framing will lead to more cheating relative to gain framing, regardless of selfcontrol
+depletion or lack thereof. Hypothesis 2 can be formally written as:
+$$H_0 : \mu_{l} = \mu_{g}$$
+$$H_a : \mu_{l} > \mu_{g}$$
+where $\mu_l$ is the cross-treatment meta-average rate/amount of cheating demonstrated by subjects in the two loss framing conditions (i.e. depleted_loss and non-depleted_loss) and $\mu_g$ is the crosstreatment meta-average rate/amount of cheating demonstrated by subjects in the two gain framing conditions (i.e. depleted_gain and non-depleted_gain). We expect to reject $H_0$, which says that there will be no statistically significant difference between $\mu_l$ and $\mu_g$, in favor of $H_a$, which says that $\mu_l$ will be statistically significantly greater than $\mu_g$.  
+
+**Hypothesis 3:** The average rate/amount of cheating demonstrated will be greatest for participants who
+are depleted of self-control and operating under a loss frame. We also expect the average amount/rate of cheating demonstrated to be the second highest in the depletion_gain treatment group, followed closely by the non-depleted_loss group, and then lastly by the nondepleted_gain group. Hypothesis 3 can be formally written as:
+$$H_0 : \mu_{dl} = \mu_{dg} = \mu_{nl} = \mu_{ng}$$
+$$H_a : \mu_{dl} > \mu_{dg} > \mu_{nl} > \mu_{ng}$$
+where $\mu_{dl}$ is the average rate/amount of cheating demonstrated by participants in the depleted_loss condition, $\mu_{dg}$ is that in the depleted_gain condition, $\mu_{nl}$ is that in the nondepleted_loss condition, and $\mu_{ng}$ is that in the non-depleted_gain condition. We expect to reject $H_0$, which says that there will be no statistically significant difference between $\mu_{dl}$, $\mu_{dg}$, $\mu_{nl}$, and $\mu_{ng}$, in favor of $H_a$, which says that $\mu_{dl}$ will be statistically significantly greater than $\mu_{dg}$, which will be statistically significantly greater than $\mu_{nl}$, which finally will be statistically significantly greater than $\mu_{ng}$.
+
+###**2. Data and methods**
+####**2.1 Data description**
+Data were collected by a team of MBDS students during November 2018 as part of their BDS-501 Behavioral Economics and Psychology: Theory and Experiments course.
+
+
+####**2.2 Analysis methods**
+To test Hypothesis 1 I use a 
+
+
+
+

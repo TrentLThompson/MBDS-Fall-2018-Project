@@ -1,0 +1,191 @@
+---
+title: "Data and Methods"
+output:
+  html_document:
+    includes:
+      in_header: "favicon.html"
+---
+#{.tabset}
+##**Description**
+<font size = 3><p align = justify>To test the aforementioned research hypotheses, a team of MBDS students including myself designed and indeed, carried out a two (framing: gain vs. loss) by two (depletion: depleted vs. non-depleted) dimensional economics experiment (i.e. four total treatment condition). This experiment was administered to consenting participants on laptop computers in a lab-in-the-field setting on the University of Pennsylvania's main Philadelphia campus throughout the month of November, 2018.</p>
+
+<p align = justify>Through the experiment's first dimension, that of framing, we are able to directly compare the effects of loss framing versus that of gain framing on cheating behaviors (i.e. Hypothesis 2). To apply conditions of loss framing, we specifically used goal framing in the form of a simple endowment situation ([Levin et al., 1998](https://www.researchgate.net/profile/Irwin_Levin/publication/4832403_All_Frames_Are_Not_Created_Equal_A_Typology_and_Critical_Analysis_of_Framing_Effects/links/5a9584f2a6fdccecff090199/All-Frames-Are-Not-Created-Equal-A-Typology-and-Critical-Analysis-of-Framing-Effects.pdf)). Essentially, subjects under treatment conditions of loss framing were endowed from the outset of the incentivized portion of the experiment---a matrices solving task similar to that which was used in Mead et al. (2009) and Grolleau et al. (2016)---with the maximum possible incentive for participating, which for our experiment was 10 tickets to win a raffle for up to four $25 Amazon.com gift cards. Participants randomly assigned to these conditions had the goal of holding onto (i.e. to avoid losing) as much of the endowment as possible when doing the matrices solving task. Importantly, after the task, participants self-reported how many matrices they correctly solved, thus cheating, by way of over-reporting, was also incentivized.</p>
+
+<p align = justify>Under gain framing conditions, subjects received their incentive for participating (i.e. raffle tickets) only after they finished the matrices solving task, and thus went about the task seeking to earn (i.e. gain) as much of the total incentive (i.e. 10 raffle tickets) as possible. Note that the opportunity and incentive to cheat remained present under gain conditions due to the constancy of the self-reporting aspect.</p>
+
+<p align = justify>The second treatment dimension we tested, that of depletion, enables us to directly compare the effects of self-control depletion versus that of non-depletion on cheating behavior (i.e. Hypothesis 2). Before completing the matrices task, participants randomly assigned by Qualtrics software to depletion conditions participated in a self-control depletion task similar to that which was employed in Mead et al., (2009), where in depletion treatment conditions, participants were instructed to write a short essay about a recent (e.g. summer) vacation without using the letters “a” and “n.” On the other hand, in the non-depletion conditions, participants were faced with a placebo task that is less cognitively demanding, whereby they were allowed to use the letters “a” and “n” in writing their essay but not “x” and “z.”</p> 
+
+<p align = justify>When combining these two treatment dimentions, four total conditions result: (1) depleted_loss, (2) depleted_gain, (3) non-depleted_loss, and (4) non-depleted_gain. Ultimately, this allows us to test the interaction effects of self-control depletion and loss/gain framing (i.e. Hypothesis 3). For the analyses to follow, please note that the treatment conditions depleted_gain, depleted_loss, non-depleted_gain, and non-depleted_loss, are referred to as DG, DL, NG, and NL, respectively.</p>
+
+<p align = justify>In total, 132 observations were collected. The main outcome variables of interest were if a participant cheated or not, and if they did in fact cheat, by how much. For the former, we considered a participant to have cheated if their reported number of matrices solved was greater than the actual number solved, as tracked by the software used to administer this experiment. The reported number was derived from the number of tickets a participant turned in to the raffle. To calculate the magnitude of cheating we simply subtracted the actual number of matrices solved from the reported number. For example, if a person actually solved 4 matrices but reported solving all 10, then the magnitude of cheating was 6. We also collected qualitative demographic information via a post-experimental survey on each participant's age, sex, year in college, and academic major area.</p></font>
+
+##**Participant Demographics**
+###**Gender**
+<center>
+```{r echo = FALSE}
+MBDSproject <- read.csv("~/Desktop/MBDS/BDS 501 Behavioral Economics & Psychology/MBDSproject.csv")
+genders <- table(MBDSproject$gender)
+barplot(genders[order(genders, decreasing = T)], 
+        names.arg = c("Female", "Male"),
+        ylab = "Number of Obs.", main = "Fig. 1a Gender Distribution of All Participants (n = 132)", ylim = c(0, 85),
+        las = 1,
+        col=c("red","blue"))
+```
+</center>
+<font size = 3><p align = justify>Overall, our participant pool is a bit unbalanced; 84 participants (64%) self-reported to be female, while the other 48 self-reported as being male. However, I will show below that such is ultimately not very problematic to our analyses, due to randomization techniques employed.</p></font> 
+<center>
+```{r echo = FALSE}
+gend <- ftable(MBDSproject$gender, MBDSproject$condition)
+
+gend_prop_table <- prop.table(gend, 2)
+
+barplot(gend_prop_table, col=c("red","blue"), 
+        legend = rownames(gend), 
+        ylab = "# of Observations",
+        las = 1,
+        ylim = c(0, 1),
+        main = "Fig. 1b Gender Distribution by Treatment Condition",
+        names.arg = c("DG", "DL", "NG", "NL"))
+abline(h = 0.50)
+```
+</center>
+<font size = 3><p align = justify>In terms of the specific treatment conditions, again we see some evidence of asymmetries. While the NL treatment group is completely balanced with both 14 males and 14 females, and while the DG group is roughly balanced with about 56% (22) female participants, the DL and NG treatment groups are predominantly female (about 77% and 71%, respectively).</p></font>
+
+<font size = 3><p align = justify>However, even with these asymmetries, we find that there is no statisitically significant difference between the four treatment groups in terms of their gender distributions; $X^2$(3, *N* = 132) = 6.3851, *p* = 0.09431. Thus, we are able to rule out gender as a confounding influence on cheating behavior with respect to our two treatment dimentions, self-control depletion and framing.</p></font>
+```{r echo = FALSE}
+gend <- ftable(MBDSproject$gender, MBDSproject$condition)
+chisq.test(gend)
+```
+<div>&nbsp;</div>
+###**Age**
+<center>
+```{r echo = FALSE}
+ages <- table(MBDSproject$age)
+
+boxplot(MBDSproject$age, horizontal = T, xlab = "Age", main = "Fig. 2a Distribution of Participants by Age (n = 132)")
+
+hist(MBDSproject$age, breaks = c(17:50), xlim = c(15, 50), ylim = c(0, 65), ylab = "# of Observations", xlab = "Age", main = " Fig. 2b Histogram of Participants by Age")
+```
+</center>
+```{r echo = FALSE}
+summary(MBDSproject$age)
+```
+<font size = 3><p align = justify>As we can see from Figure 2a, Figure 2b, and the summary table of descriptive statistics, the mean age across all 132 participants was about 20.29 years old. The median was 19, minimum was 17, and maximum was 50. The standard deviation of age across all 132 participants was 3.85. Interestingly, the most common age (i.e. mode) was 18; in total 60 participants, or about 45% of our sample pool were 18 years old.</p></font>
+<center>
+```{r echo = FALSE}
+boxplot(MBDSproject$age[MBDSproject$condition == "DG"],
+        MBDSproject$age[MBDSproject$condition == "DL"],
+        MBDSproject$age[MBDSproject$condition == "NG"],
+        MBDSproject$age[MBDSproject$condition == "NL"],
+        names = c("DG", "DL", "NL", "NG"),
+        ylab = "Age",
+        main = "Fig. 2c Age Distribution by Treatment Condition")
+```
+</center>
+```{r, echo = FALSE}
+summary(aov(MBDSproject$age ~ MBDSproject$condition))
+kruskal.test(MBDSproject$age ~ MBDSproject$condition)
+```
+<font size = 3><p align = justify>Despite the skewness in age for our total sample, Figure 2c and the ANOVA output above indicate that such is not problematic with respect to our main analysis. At the 95% confidence level we fail to reject the null hypothesis which says that the mean age of the four treatment groups, DL (M = 19.77, SD = 3.03), DG (M = 21.15, SD = 5.71), NL (M = 19.86, SD = 2.26), and DG (M = 20.14, SD = 2.73), are equal; *F*(3, 128) = 0.981, *p* = 0.4040. In view of the presence of outliers in the data, I confirm this using nonparametric testing, again finding no significant differences in the distributions of participants' ages across the four treatment conditions; *H*(3) = 1.0638, *p* = 0.7858. Thus, we find that on average the four treatment groups were relatively similar in terms of participants' ages, and we are able to rule out age as a confounding influence on our main dependent variables of interest, the decision to cheat and the magnitude of cheating.</p></font>
+<div>&nbsp;</div>
+###**Year In College**
+<center>
+```{r echo = FALSE, warning = FALSE}
+years <- table(MBDSproject$uni_year)
+barplot(years[order(years, decreasing = T)], 
+        names.arg = c("Freshman", "Other", "Junior", "Sophomore", "Senior"),
+        ylab = "Number of Obs.", ylim = c(0, 70),
+        las = 1,
+        col = c("Green", "Yellow", "Red", "Purple", "Orange"),
+        main = "Fig. 3a Participants by Year In College (n = 132)")
+
+yearsss <- table(MBDSproject$uni_year, MBDSproject$condition)
+years_prop_table <- prop.table(yearsss, 2)
+barplot(years_prop_table, legend = FALSE, col = c("Green", "Red", "Yellow", "Purple", "Orange"), ylim = c(0, 1), main = "Fig. 3b Year in College by Treatment Group", ylab = "Frequency")
+```
+</center>
+```{r echo = FALSE, warning = FALSE}
+years_school <- table(MBDSproject$condition, MBDSproject$uni_year)
+chisq.test(years_school)
+fisher.test(years_school)
+```
+<font size = 3><p align = justify>Despite our sample largely coming from freshman students (49%), Figure 3b suggests that such is not problematic with respect to our main analysis. In fact, when we test for differences in the distribution of participants' academic year across the four treatment groups we find there to be no statistically significant difference; $X^2$(12, *N* = 132) = 4.3486, *p* = 0.9763. Using Fisher's Exact Test, we also confirm this (*p* > 0.05). Thus, we can conclude that the four treatment groups were relatively similar in terms of what year in college participants were in. This allows us to confidently rule out expertise or education level as a confounding influence, which is especially important to do in consideration of the matrices problem solving task, which requires arithmetic abilities to be successful.</p></font>
+<div>&nbsp;</div>
+###**Academic Major Area**
+<center>
+```{r echo= FALSE, message= FALSE, warning = FALSE}
+library(RColorBrewer)
+majors <- table(MBDSproject$major)
+par(mar = c(5,7,4,2) + 0.1)
+barplot(majors[order(majors, decreasing = F)], 
+        names.arg = c("Math", "Nursing", "Not listed", "Undecided", "Business", "Engineering", "Science", "Humanities"),
+        xlab = "Number of Obs.",
+        col = c("wheat", "honeydew3", "lightpink", "plum2", "peachpuff1", "palegreen3", "rosybrown1", "cadetblue"), 
+        main = "Fig. 4a Participants by Academic Major Area (n = 132)", 
+        horiz = T, las = 1, xlim = c(0,40))
+
+majorsss <- table(MBDSproject$major, MBDSproject$condition)
+majors_prop_table <- prop.table(majorsss, 2)
+barplot(majors_prop_table, legend = F, ylim = c(0, 1), col = c("peachpuff1", "palegreen3", "cadetblue", "wheat", "lightpink", "honeydew3", "rosybrown1", "plum2"), main = "Fig. 4b Academic Major Area by Treatment Group", ylab = "Frequency")
+```
+</center>
+```{r echo= FALSE, message= FALSE, warning = FALSE}
+chisq.test(MBDSproject$condition, MBDSproject$major)
+fisher.test(MBDSproject$condition, MBDSproject$major, simulate.p.value = TRUE)
+```
+<font size = 3><p align = justify>Despite our sample largely being comprised of students studying the humanities (28%), Figure 4b suggests that such is not problematic with respect to our main analysis. In fact, when we test for differences in the distribution of participants' academic major across the four treatment groups we find there to be no statistically significant difference; $X^2$(21, *N* = 132) = 25.371, *p* = 0.2314. Using Fisher's Exact Test, we also confirm this (simulated *p* > 0.05, based on 2000 replicates). Thus, we find that on average the four treatment groups were relatively similar in terms of what areas of study participants were in. This allows us to confidently rule out area of expertise or greater affinity with mathematics as a confounding influence, which is especially important to do in consideration of the matrices problem solving task, which requires arithmetic abilities to be successful.</p></font>
+<div>&nbsp;</div>
+##**Data Collection Periods**
+###**Days of the Week**
+<center>
+```{r echo= FALSE, warning = FALSE, message = FALSE}
+days <- table(MBDSproject$day)
+barplot(days[order(days, decreasing = T)], 
+        names.arg = c("Thu", "Wed", "Fri", "Sun", "Tue", "Mon"),
+        main = "Fig. 5a Data Collection Across Days of the Week (n = 132)", 
+        ylim = c(0,40),
+        las = 1,
+        col = c("salmon", "paleturquoise3", "darkseagreen2", "antiquewhite", "plum3", "khaki"))
+
+daysss <- table(MBDSproject$day, MBDSproject$condition)
+days_prop_table <- prop.table(daysss, 2)
+barplot(days_prop_table, legend = F, ylim = c(0, 1), col = c("darkseagreen2", "khaki", "antiquewhite", "salmon", "plum3", "paleturquoise3"), main = "Fig. 5b Data Collection Across Days of the Week by Treatment Group", ylab = "Frequency")
+
+class(MBDSproject$day) <- "character"
+library(dplyr)
+MBDSproject <- cbind(MBDSproject, recode(MBDSproject$day, `Monday` = 1, `Tuesday` = 2, `Wednesday` = 3, `Thursday` = 4, `Friday` = 5, `Sunday` = 6))
+```
+</center>
+```{r echo= FALSE, message= FALSE, warning = FALSE}
+chisq.test(MBDSproject$condition, MBDSproject$day)
+fisher.test(MBDSproject$condition, MBDSproject$day, simulate.p.value = TRUE)
+```
+<font size = 3><p align = justify>Despite our best efforts to randomize selection into treatment groups over different days of the week, Figure 5b suggests that such might be problematic with respect to our main analysis. In fact, when we test for differences in the distribution of data collection over days of the week across the four treatment groups we find there to be a statistically significant difference; $X^2$(15, *N* = 132) = 49.508, *p* < 0.0001. Using Fisher's Exact Test, we also confirm this (simulated *p* < 0.001, based on 2000 replicates). Thus, we find that on average the four treatment groups were dissimilar in terms of which days of the week their observations were collected on. This suggests the need to control for day of the week effects as a possible confound in our main analyses. With that said though, at least intuitively, we do not expect this factor to be a significant confound for our dependent variables of interest (i.e. cheating; magnitude of cheating) because there is no real reason to think that people cheat, for example, more on a Tuesday as opposed to a Friday, or vice versa.</p></font>
+<div>&nbsp;</div>
+###**Times of the Day**
+<center>
+```{r echo= FALSE, warning = FALSE, message = FALSE}
+times <- table(MBDSproject$time_period)
+barplot(times[order(times, decreasing = T)], 
+        names.arg = c("Afternoon (12pm-5pm)", "Evening (5pm-10pm)", "Morning (8am-12pm)"),
+        ylab = "Number of Obs.", 
+        main = "Fig. 6a Distribution of Data Collection Across Times of Day (n = 132)", 
+        ylim = c(0, 75),
+        las = 1,
+        col = c("gold", "dodgerblue4", "aliceblue"))
+
+timesss <- table(MBDSproject$time_period, MBDSproject$condition)
+times_prop_table <- prop.table(timesss, 2)
+barplot(times_prop_table, legend = FALSE, col = c("aliceblue", "gold", "dodgerblue4"), ylim = c(0, 1), main = "Fig. 6b Times of Data Collection by Treatment Group", ylab = "Frequency")
+```
+</center>
+```{r echo= FALSE, message= FALSE, warning = FALSE}
+chisq.test(MBDSproject$condition, MBDSproject$time_period)
+fisher.test(MBDSproject$condition, MBDSproject$time_period, simulate.p.value = TRUE)
+```
+<font size = 3><p align = justify>Despite our data largely being collected in the afternoon and evening time blocks, Figure 6b suggests that such should not be problematic with respect to our main analysis. In fact, when we test for differences in the distribution of data collection over times of day across the four treatment groups we find there to be no statistically significant difference; $X^2$(6, *N* = 132) = 11.058, *p* = 0.08662. Using Fisher's Exact Test, we also confirm this (simulated *p* > 0.05, based on 2000 replicates). Thus, we find that on average the four treatment groups were relatively similar in terms of what times of day data were collected. This allows us to confidently rule out time-of-day effects as a confounding influence.</p></font>
+<div>&nbsp;</div>
+##**Analysis Methods**
+<font size = 3><p align = justify>Recall from the introduction section that Hypothesis 1 says that regardless of loss/gain framing, participants depleted of self-control will cheat more frequently and to a greater degree, on average, than non-depleted participants. Accordingly, we use nonparametric methods to test this hypothesis, in particular the Wilcoxon rank sum test that compares two independent samples under assumptions of data non-normality. We do the same for Hypothesis 2, being that it also serves to uncover if the frequency and amount of cheating differed across the two framing conditions. Note that for each of these hypotheses, the analysis is done both on the binary variable of if a participant cheated or not, as well as the discrete variable of how much a participant cheated, conditional upon them actually cheating in the first place, both of which in our case do not meet normality criteria.</p>
+
+<p align = justify>For Hypothesis 3, which says that the average rate/amount of cheating demonstrated will be greatest for participants who are depleted of self-control and operating under a loss frame, we use the nonparametric equivalent of the ANOVA F-test, namely, the Kruskal-Wallis test  that compares two or more independent samples under assumptions of data non-normality. Specifically, we test the null (i.e. $H_0 : \mu_{dl} = \mu_{dg} = \mu_{nl} = \mu_{ng}$) against the one-sided alternative, which says that the difference in mean rate/amount of cheating in DL condition and that of any of the other three conditions will be greater than zero (e.g. $\mu_{dl} - \mu_{dg} > 0$). Again, for this hypothesis the analysis is run on both the frequency of cheating and the magnitude.</p></font>

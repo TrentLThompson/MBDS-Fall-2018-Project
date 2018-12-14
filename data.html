@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Data and Methods</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<head>
+<link rel="shortcut icon" href="shield.png">
+</head>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="introduction.html">Introduction</a>
+</li>
+<li>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="results.html">Results</a>
+</li>
+<li>
+  <a href="conclusion.html">Conclusion</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data and Methods</h1>
+
+</div>
+
+
+<div id="section" class="section level1 tabset">
+<h1></h1>
+<div id="description" class="section level2">
+<h2><strong>Description</strong></h2>
+<font size = 3>
+<p align="justify">
+To test the aforementioned research hypotheses, a team of MBDS students including myself designed and indeed, carried out a two (framing: gain vs. loss) by two (depletion: depleted vs. non-depleted) dimensional economics experiment (i.e. four total treatment condition). This experiment was administered to consenting participants on laptop computers in a lab-in-the-field setting on the University of Pennsylvania’s main Philadelphia campus throughout the month of November, 2018.
+</p>
+<p align="justify">
+Through the experiment’s first dimension, that of framing, we are able to directly compare the effects of loss framing versus that of gain framing on cheating behaviors (i.e. Hypothesis 2). To apply conditions of loss framing, we specifically used goal framing in the form of a simple endowment situation (<a href="https://www.researchgate.net/profile/Irwin_Levin/publication/4832403_All_Frames_Are_Not_Created_Equal_A_Typology_and_Critical_Analysis_of_Framing_Effects/links/5a9584f2a6fdccecff090199/All-Frames-Are-Not-Created-Equal-A-Typology-and-Critical-Analysis-of-Framing-Effects.pdf">Levin et al., 1998</a>). Essentially, subjects under treatment conditions of loss framing were endowed from the outset of the incentivized portion of the experiment—a matrices solving task similar to that which was used in Mead et al. (2009) and Grolleau et al. (2016)—with the maximum possible incentive for participating, which for our experiment was 10 tickets to win a raffle for up to four $25 Amazon.com gift cards. Participants randomly assigned to these conditions had the goal of holding onto (i.e. to avoid losing) as much of the endowment as possible when doing the matrices solving task. Importantly, after the task, participants self-reported how many matrices they correctly solved, thus cheating, by way of over-reporting, was also incentivized.
+</p>
+<p align="justify">
+Under gain framing conditions, subjects received their incentive for participating (i.e. raffle tickets) only after they finished the matrices solving task, and thus went about the task seeking to earn (i.e. gain) as much of the total incentive (i.e. 10 raffle tickets) as possible. Note that the opportunity and incentive to cheat remained present under gain conditions due to the constancy of the self-reporting aspect.
+</p>
+<p align="justify">
+The second treatment dimension we tested, that of depletion, enables us to directly compare the effects of self-control depletion versus that of non-depletion on cheating behavior (i.e. Hypothesis 2). Before completing the matrices task, participants randomly assigned by Qualtrics software to depletion conditions participated in a self-control depletion task similar to that which was employed in Mead et al., (2009), where in depletion treatment conditions, participants were instructed to write a short essay about a recent (e.g. summer) vacation without using the letters “a” and “n.” On the other hand, in the non-depletion conditions, participants were faced with a placebo task that is less cognitively demanding, whereby they were allowed to use the letters “a” and “n” in writing their essay but not “x” and “z.”
+</p>
+<p align="justify">
+When combining these two treatment dimentions, four total conditions result: (1) depleted_loss, (2) depleted_gain, (3) non-depleted_loss, and (4) non-depleted_gain. Ultimately, this allows us to test the interaction effects of self-control depletion and loss/gain framing (i.e. Hypothesis 3). For the analyses to follow, please note that the treatment conditions depleted_gain, depleted_loss, non-depleted_gain, and non-depleted_loss, are referred to as DG, DL, NG, and NL, respectively.
+</p>
+<p align="justify">
+In total, 132 observations were collected. The main outcome variables of interest were if a participant cheated or not, and if they did in fact cheat, by how much. For the former, we considered a participant to have cheated if their reported number of matrices solved was greater than the actual number solved, as tracked by the software used to administer this experiment. The reported number was derived from the number of tickets a participant turned in to the raffle. To calculate the magnitude of cheating we simply subtracted the actual number of matrices solved from the reported number. For example, if a person actually solved 4 matrices but reported solving all 10, then the magnitude of cheating was 6. We also collected qualitative demographic information via a post-experimental survey on each participant’s age, sex, year in college, and academic major area.
+</p>
+<p></font></p>
+</div>
+<div id="participant-demographics" class="section level2">
+<h2><strong>Participant Demographics</strong></h2>
+<div id="gender" class="section level3">
+<h3><strong>Gender</strong></h3>
+<center>
+<img src="data_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+</center>
+<font size = 3>
+<p align="justify">
+Overall, our participant pool is a bit unbalanced; 84 participants (64%) self-reported to be female, while the other 48 self-reported as being male. However, I will show below that such is ultimately not very problematic to our analyses, due to randomization techniques employed.
+</p>
+</font>
+<center>
+<img src="data_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+</center>
+<font size = 3>
+<p align="justify">
+In terms of the specific treatment conditions, again we see some evidence of asymmetries. While the NL treatment group is completely balanced with both 14 males and 14 females, and while the DG group is roughly balanced with about 56% (22) female participants, the DL and NG treatment groups are predominantly female (about 77% and 71%, respectively).
+</p>
+<p></font></p>
+<font size = 3>
+<p align="justify">
+However, even with these asymmetries, we find that there is no statisitically significant difference between the four treatment groups in terms of their gender distributions; <span class="math inline">\(X^2\)</span>(3, <em>N</em> = 132) = 6.3851, <em>p</em> = 0.09431. Thus, we are able to rule out gender as a confounding influence on cheating behavior with respect to our two treatment dimentions, self-control depletion and framing.
+</p>
+<p></font></p>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  gend
+## X-squared = 6.3851, df = 3, p-value = 0.09431</code></pre>
+<div>
+ 
+</div>
+</div>
+<div id="age" class="section level3">
+<h3><strong>Age</strong></h3>
+<center>
+<img src="data_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="data_files/figure-html/unnamed-chunk-4-2.png" width="672" />
+</center>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   17.00   18.00   19.00   20.29   22.00   50.00</code></pre>
+<font size = 3>
+<p align="justify">
+As we can see from Figure 2a, Figure 2b, and the summary table of descriptive statistics, the mean age across all 132 participants was about 20.29 years old. The median was 19, minimum was 17, and maximum was 50. The standard deviation of age across all 132 participants was 3.85. Interestingly, the most common age (i.e. mode) was 18; in total 60 participants, or about 45% of our sample pool were 18 years old.
+</p>
+</font>
+<center>
+<img src="data_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+</center>
+<pre><code>##                        Df Sum Sq Mean Sq F value Pr(&gt;F)
+## MBDSproject$condition   3   43.6   14.54   0.981  0.404
+## Residuals             128 1897.5   14.82</code></pre>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  MBDSproject$age by MBDSproject$condition
+## Kruskal-Wallis chi-squared = 1.0638, df = 3, p-value = 0.7858</code></pre>
+<font size = 3>
+<p align="justify">
+Despite the skewness in age for our total sample, Figure 2c and the ANOVA output above indicate that such is not problematic with respect to our main analysis. At the 95% confidence level we fail to reject the null hypothesis which says that the mean age of the four treatment groups, DL (M = 19.77, SD = 3.03), DG (M = 21.15, SD = 5.71), NL (M = 19.86, SD = 2.26), and DG (M = 20.14, SD = 2.73), are equal; <em>F</em>(3, 128) = 0.981, <em>p</em> = 0.4040. In view of the presence of outliers in the data, I confirm this using nonparametric testing, again finding no significant differences in the distributions of participants’ ages across the four treatment conditions; <em>H</em>(3) = 1.0638, <em>p</em> = 0.7858. Thus, we find that on average the four treatment groups were relatively similar in terms of participants’ ages, and we are able to rule out age as a confounding influence on our main dependent variables of interest, the decision to cheat and the magnitude of cheating.
+</p>
+</font>
+<div>
+ 
+</div>
+</div>
+<div id="year-in-college" class="section level3">
+<h3><strong>Year In College</strong></h3>
+<center>
+<img src="data_files/figure-html/unnamed-chunk-8-1.png" width="672" /><img src="data_files/figure-html/unnamed-chunk-8-2.png" width="672" />
+</center>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  years_school
+## X-squared = 4.3486, df = 12, p-value = 0.9763</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  years_school
+## p-value = 0.9782
+## alternative hypothesis: two.sided</code></pre>
+<font size = 3>
+<p align="justify">
+Despite our sample largely coming from freshman students (49%), Figure 3b suggests that such is not problematic with respect to our main analysis. In fact, when we test for differences in the distribution of participants’ academic year across the four treatment groups we find there to be no statistically significant difference; <span class="math inline">\(X^2\)</span>(12, <em>N</em> = 132) = 4.3486, <em>p</em> = 0.9763. Using Fisher’s Exact Test, we also confirm this (<em>p</em> &gt; 0.05). Thus, we can conclude that the four treatment groups were relatively similar in terms of what year in college participants were in. This allows us to confidently rule out expertise or education level as a confounding influence, which is especially important to do in consideration of the matrices problem solving task, which requires arithmetic abilities to be successful.
+</p>
+</font>
+<div>
+ 
+</div>
+</div>
+<div id="academic-major-area" class="section level3">
+<h3><strong>Academic Major Area</strong></h3>
+<center>
+<img src="data_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="data_files/figure-html/unnamed-chunk-10-2.png" width="672" />
+</center>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  MBDSproject$condition and MBDSproject$major
+## X-squared = 25.371, df = 21, p-value = 0.2314</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data with simulated p-value (based
+##  on 2000 replicates)
+## 
+## data:  MBDSproject$condition and MBDSproject$major
+## p-value = 0.2949
+## alternative hypothesis: two.sided</code></pre>
+<font size = 3>
+<p align="justify">
+Despite our sample largely being comprised of students studying the humanities (28%), Figure 4b suggests that such is not problematic with respect to our main analysis. In fact, when we test for differences in the distribution of participants’ academic major across the four treatment groups we find there to be no statistically significant difference; <span class="math inline">\(X^2\)</span>(21, <em>N</em> = 132) = 25.371, <em>p</em> = 0.2314. Using Fisher’s Exact Test, we also confirm this (simulated <em>p</em> &gt; 0.05, based on 2000 replicates). Thus, we find that on average the four treatment groups were relatively similar in terms of what areas of study participants were in. This allows us to confidently rule out area of expertise or greater affinity with mathematics as a confounding influence, which is especially important to do in consideration of the matrices problem solving task, which requires arithmetic abilities to be successful.
+</p>
+</font>
+<div>
+ 
+</div>
+</div>
+</div>
+<div id="data-collection-periods" class="section level2">
+<h2><strong>Data Collection Periods</strong></h2>
+<div id="days-of-the-week" class="section level3">
+<h3><strong>Days of the Week</strong></h3>
+<center>
+<img src="data_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="data_files/figure-html/unnamed-chunk-12-2.png" width="672" />
+</center>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  MBDSproject$condition and MBDSproject$day
+## X-squared = 49.508, df = 15, p-value = 1.449e-05</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data with simulated p-value (based
+##  on 2000 replicates)
+## 
+## data:  MBDSproject$condition and MBDSproject$day
+## p-value = 0.0004998
+## alternative hypothesis: two.sided</code></pre>
+<font size = 3>
+<p align="justify">
+Despite our best efforts to randomize selection into treatment groups over different days of the week, Figure 5b suggests that such might be problematic with respect to our main analysis. In fact, when we test for differences in the distribution of data collection over days of the week across the four treatment groups we find there to be a statistically significant difference; <span class="math inline">\(X^2\)</span>(15, <em>N</em> = 132) = 49.508, <em>p</em> &lt; 0.0001. Using Fisher’s Exact Test, we also confirm this (simulated <em>p</em> &lt; 0.001, based on 2000 replicates). Thus, we find that on average the four treatment groups were dissimilar in terms of which days of the week their observations were collected on. This suggests the need to control for day of the week effects as a possible confound in our main analyses. With that said though, at least intuitively, we do not expect this factor to be a significant confound for our dependent variables of interest (i.e. cheating; magnitude of cheating) because there is no real reason to think that people cheat, for example, more on a Tuesday as opposed to a Friday, or vice versa.
+</p>
+</font>
+<div>
+ 
+</div>
+</div>
+<div id="times-of-the-day" class="section level3">
+<h3><strong>Times of the Day</strong></h3>
+<center>
+<img src="data_files/figure-html/unnamed-chunk-14-1.png" width="672" /><img src="data_files/figure-html/unnamed-chunk-14-2.png" width="672" />
+</center>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  MBDSproject$condition and MBDSproject$time_period
+## X-squared = 11.058, df = 6, p-value = 0.08662</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data with simulated p-value (based
+##  on 2000 replicates)
+## 
+## data:  MBDSproject$condition and MBDSproject$time_period
+## p-value = 0.09845
+## alternative hypothesis: two.sided</code></pre>
+<font size = 3>
+<p align="justify">
+Despite our data largely being collected in the afternoon and evening time blocks, Figure 6b suggests that such should not be problematic with respect to our main analysis. In fact, when we test for differences in the distribution of data collection over times of day across the four treatment groups we find there to be no statistically significant difference; <span class="math inline">\(X^2\)</span>(6, <em>N</em> = 132) = 11.058, <em>p</em> = 0.08662. Using Fisher’s Exact Test, we also confirm this (simulated <em>p</em> &gt; 0.05, based on 2000 replicates). Thus, we find that on average the four treatment groups were relatively similar in terms of what times of day data were collected. This allows us to confidently rule out time-of-day effects as a confounding influence.
+</p>
+</font>
+<div>
+ 
+</div>
+</div>
+</div>
+<div id="analysis-methods" class="section level2">
+<h2><strong>Analysis Methods</strong></h2>
+<font size = 3>
+<p align="justify">
+Recall from the introduction section that Hypothesis 1 says that regardless of loss/gain framing, participants depleted of self-control will cheat more frequently and to a greater degree, on average, than non-depleted participants. Accordingly, we use nonparametric methods to test this hypothesis, in particular the Wilcoxon rank sum test that compares two independent samples under assumptions of data non-normality. We do the same for Hypothesis 2, being that it also serves to uncover if the frequency and amount of cheating differed across the two framing conditions. Note that for each of these hypotheses, the analysis is done both on the binary variable of if a participant cheated or not, as well as the discrete variable of how much a participant cheated, conditional upon them actually cheating in the first place, both of which in our case do not meet normality criteria.
+</p>
+<p align="justify">
+For Hypothesis 3, which says that the average rate/amount of cheating demonstrated will be greatest for participants who are depleted of self-control and operating under a loss frame, we use the nonparametric equivalent of the ANOVA F-test, namely, the Kruskal-Wallis test that compares two or more independent samples under assumptions of data non-normality. Specifically, we test the null (i.e. <span class="math inline">\(H_0 : \mu_{dl} = \mu_{dg} = \mu_{nl} = \mu_{ng}\)</span>) against the one-sided alternative, which says that the difference in mean rate/amount of cheating in DL condition and that of any of the other three conditions will be greater than zero (e.g. <span class="math inline">\(\mu_{dl} - \mu_{dg} &gt; 0\)</span>). Again, for this hypothesis the analysis is run on both the frequency of cheating and the magnitude.
+</p>
+<p></font></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

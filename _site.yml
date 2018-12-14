@@ -1,0 +1,13 @@
+name: "MBDS Project"
+output_dir: "."
+navbar:
+  title: "Home"
+  left:
+    - text: "Introduction"
+      href: introduction.html
+    - text: "Data"
+      href: data.html
+    - text: "Results"
+      href: results.html
+    - text: "Conclusion"
+      href: conclusion.html
