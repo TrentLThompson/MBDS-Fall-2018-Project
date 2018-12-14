@@ -33,21 +33,21 @@ output:
 <font size = 3><p align = justify>We identify an opportunity to expand upon Mead et al. (2009) and Gino et al.(2011)---which established the effect of self-control depletion on cheating under loss and gain framing, respectively---to incorporate the findings of Grolleau et al. (2016)---which established that loss and gain frames have asymmetric effects on cheating behaviors---by ***looking at the interaction effects of self-control depletion/non-depletion and loss/gain framing.***</p></font>
 
 ##**Hypotheses**
-####**Hypothesis 1:**
+###**Hypothesis 1:**
 <font size = 3><p align = justify>Regardless of loss/gain framing, participants depleted of self-control will cheat more, on average, than non-depleted participants. As previously mentioned, several studies have found that on average, experimental participants depleted of self-control systematically cheat much more relative to non-depleted participants under otherwise similar conditions (Mead et al., 2009; Gino et al, 2011). Thus, the proposed study serves, in part, to replicate and substantiate the current body of literature on this topic. Hypothesis 1 can be formally written as:
 $$H_0 : \mu_d = \mu_n$$
 $$H_a : \mu_d > \mu_n$$
 where $\mu_d$ is the cross-treatment meta-average rate/amount of cheating demonstrated by participants in the two depleted conditions (i.e. depleted_loss and depleted_gain) and $\mu_n$ is the cross-treatment meta-average rate/amount of cheating demonstrated by participants in the two non-depleted conditions (i.e. non-depleted_loss and non-depleted_gain). We expect to reject $H_0$, which says that there will be no statistically significant difference between $\mu_d$ and $\mu_n$, in favor of $H_a$, which says that $\mu_d$ will be statistically significantly greater than $\mu_n$.</p></font>
 <div>&nbsp;</div>
 
-####**Hypothesis 2:**
+###**Hypothesis 2:**
 <font size = 3><p align = justify>Loss framing will lead to more cheating relative to gain framing, regardless of self-control depletion or lack thereof. Again, we expect such an effect in view of previous work that has demonstrated that people generally cheat more in order to avoid losses than to ensure gains (Grolleau et al., 2016). Hypothesis 2 can be formally written as:
 $$H_0 : \mu_{l} = \mu_{g}$$
 $$H_a : \mu_{l} > \mu_{g}$$
 where $\mu_l$ is the cross-treatment meta-average rate/amount of cheating demonstrated by participants in the two loss framing conditions (i.e. depleted_loss and non-depleted_loss) and $\mu_g$ is the cross-treatment meta-average rate/amount of cheating demonstrated by participants in the two gain framing conditions (i.e. depleted_gain and non-depleted_gain). We expect to reject $H_0$, which says that there will be no statistically significant difference between $\mu_l$ and $\mu_g$, in favor of $H_a$, which says that $\mu_l$ will be statistically significantly greater than $\mu_g$.</p></font>
 <div>&nbsp;</div>
 
-####**Hypothesis 3:**
+###**Hypothesis 3:**
 <font size = 3><p align = justify>The average rate/amount of cheating demonstrated will be greatest for participants who are depleted of self-control and operating under a loss frame. I also expect the average amount/rate of cheating demonstrated to be the second highest in the depletion_gain treatment group, followed closely by the non-depleted_loss group, and then lastly by the non-depleted_gain group. Hypothesis 3 can be formally written as:
 $$H_0 : \mu_{dl} = \mu_{dg} = \mu_{nl} = \mu_{ng}$$
 $$H_a : \mu_{dl} > \mu_{dg} > \mu_{nl} > \mu_{ng}$$
